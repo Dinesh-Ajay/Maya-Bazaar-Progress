@@ -32,3 +32,4 @@ This version is designed to run **locally** and shows my starting point in build
 1. Install dependencies:
    ```bash
    npm install express mongodb# Maya-Bazaar-Progress
+# Maya-Bazaar-Progress
