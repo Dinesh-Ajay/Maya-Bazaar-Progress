@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bill Receipt</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  table { width: 70%; border-collapse: collapse; margin-top: 20px; }
+  th, td { border: 1px solid #31e795; padding: 8px; text-align: left; }
+  th { background-color: #55dbf3; text-align: center; }
+  button, select { padding: 8px 12px; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<h1>Selected Products</h1>
+
+<table id="productReview">
+  <thead>
+    <tr><th>Product</th><th>Price (₹)</th></tr>
+  </thead>
+  <tbody id="reviewBody"></tbody>
+</table>
+
+<h2>Select Payment Method:</h2>
+<select id="paymentSelect">
+  <option value="">--Choose Payment--</option>
+  <option value="Credit Card">Credit Card</option>
+  <option value="Debit Card">Debit Card</option>
+  <option value="UPI">UPI</option>
+  <option value="PayPal">PayPal</option>
+  <option value="Cash on Delivery">Cash on Delivery</option>
+</select>
+<button onclick="finalizePurchase()">Buy</button>
+<button onclick="viewBill()">View Bill</button>
+
+<script>
+// Global variable to store the bill data after it's fetched or finalized.
+let lastBillData = null;
+
+/**
+ * Fetches the selected product data from the server's '/get-bill' endpoint
+ * when the page loads and displays them in the review table.
+ */
+async function loadSelectedProducts() {
+  try {
+    const res = await fetch('/get-bill');
+    if (!res.ok) throw new Error("Failed to load bill data");
+
+    const bill = await res.json();
+    lastBillData = bill;
+
+    const reviewBody = document.getElementById('reviewBody');
+    reviewBody.innerHTML = '';
+    bill.products.forEach(p => {
+      reviewBody.innerHTML += `<tr><td>${p.name} (${p.model})</td><td>₹${p.price}</td></tr>`;
+    });
+  } catch (err) {
+    console.error(err);
+    alert("Error loading selected products.");
+  }
+}
+// Calls the function to load product data as soon as the page is ready.
+loadSelectedProducts();
+
+/**
+ * Handles the final purchase. It reads the selected payment method, calculates
+ * the subtotal, GST, and total amount, then sends the complete bill data to
+ * the server's '/bill' endpoint to be saved.
+ */
+async function finalizePurchase() {
+  if (!lastBillData || !lastBillData.products.length) {
+    alert("No products selected!");
+    return;
+  }
+
+  const paymentMethod = document.getElementById('paymentSelect').value;
+  if (!paymentMethod) { alert("Please select payment method."); return; }
+
+  let subtotal = 0;
+  lastBillData.products.forEach(p => subtotal += Number(p.price));
+  const gstPercent = 2;
+  const gstAmount = (subtotal * gstPercent / 100).toFixed(2);
+  const totalAmount = (subtotal + Number(gstAmount)).toFixed(2);
+
+  const billData = {
+    user: lastBillData.user,
+    products: lastBillData.products,
+    subtotal: subtotal.toFixed(2),
+    gstPercent,
+    gstAmount,
+    totalAmount,
+    paymentMethod,
+    date: new Date().toLocaleString()
+  };
+
+  try {
+    const res = await fetch('/bill', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(billData)
+    });
+
+    if (res.ok) {
+      alert("Purchase Successful! Bill recorded.");
+      lastBillData = billData;
+    } else {
+      alert("Error saving bill. Try again.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Error connecting to server.");
+  }
+}
+
+/**
+ * Opens a new browser window to display a formatted receipt using
+ * the most recently processed bill data stored in the `lastBillData` variable.
+ */
+function viewBill() {
+  if (!lastBillData) {
+    alert("No bill data available.");
+    return;
+  }
+
+  const billWindow = window.open("", "BillReceipt", "width=700,height=800,scrollbars=yes");
+  billWindow.document.write(`
+    <html>
+      <head>
+        <title>Bill Receipt - ${lastBillData.user}</title>
+        <style>
+          body { font-family: Arial, sans-serif; margin: 20px; }
+          h1 { text-align: center; color: #31e795; }
+          table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+          th, td { border: 1px solid #31e795; padding: 8px; text-align: left; }
+          th { background-color: #55dbf3; }
+          .section-title { margin-top: 20px; font-weight: bold; text-decoration: underline; }
+          .footer { margin-top: 30px; text-align: center; font-style: italic; }
+        </style>
+      </head>
+      <body>
+        <h1>Maya Bazaar - Bill Receipt</h1>
+        <p><strong>Customer:</strong> ${lastBillData.user}</p>
+        <p><strong>Date:</strong> ${lastBillData.date}</p>
+        <p><strong>Payment Method:</strong> ${lastBillData.paymentMethod}</p>
+
+        <div class="section-title">Products Purchased</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Price (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${lastBillData.products.map(p => `<tr><td>${p.name} (${p.model})</td><td>₹${p.price}</td></tr>`).join('')}
+          </tbody>
+        </table>
+
+        <table>
+          <tbody>
+            <tr><td><strong>Subtotal</strong></td><td>₹${lastBillData.subtotal}</td></tr>
+            <tr><td><strong>GST (${lastBillData.gstPercent}%)</strong></td><td>₹${lastBillData.gstAmount}</td></tr>
+            <tr><td><strong>Total Amount</strong></td><td>₹${lastBillData.totalAmount}</td></tr>
+          </tbody>
+        </table>
+
+        <div class="footer">Thank you for shopping at Maya Bazaar!</div>
+      </body>
+    </html>
+  `);
+  billWindow.document.close();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Products</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; table-layout: fixed; }
+    th, td { border: 1px solid #31e795; padding: 8px; text-align: center; vertical-align: middle; word-wrap: break-word; }
+    th { background-color: #55dbf3; }
+    button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px; }
+    button:hover { background: #0056b3; }
+
+    td:nth-child(1), th:nth-child(1) { width: 8%;  }
+    td:nth-child(2), th:nth-child(2) { width: 20%; }
+    td:nth-child(3), th:nth-child(3) { width: 20%; }
+    td:nth-child(4), th:nth-child(4) { width: 16%; }
+    td:nth-child(5), th:nth-child(5) { width: 26%; }
+    td:nth-child(6), th:nth-child(6) { width: 10%; }
+
+    td img { width: 120px; height: auto; border-radius: 6px; display: block; margin: auto; }
+
+    .search-bar { margin: 20px 0; }
+    .search-bar input[type="text"] {
+      padding: 8px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .search-bar button {
+      padding: 8px 12px;
+      margin-left: 5px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .search-bar button:hover { background: #0056b3; }
+
+    #productTable tr:nth-child(even) { background-color: #f9f9f9; }
+  </style>
+</head>
+<body>
+  <h1>All Products of Maya Bazaar</h1>
+
+  <div class="search-bar">
+    <input type="text" id="searchBox" placeholder="Search by ID or Name">
+    <button onclick="filterProducts()">Search</button>
+    <button onclick="resetSearch()">Reset</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product Id</th>
+        <th>Name</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Select</th>
+      </tr>
+    </thead>
+    <tbody id="productTableBody"></tbody>
+  </table>
+
+  <br>
+  <button onclick="confirmSelection()">Confirm Selection</button>
+  <button onclick="proceedToBill()">Proceed to Bill</button>
+
+  <br><br>
+  <button onclick="location.href='/create'">Add Product</button>
+  <button type="button" onclick="location.href='/update'">Update Products</button>
+  <button type="button" onclick="location.href='/delete'">Delete Products</button><br><br>
+  <button type="button" onclick="location.href='/e20c.html'">View Created Products</button>
+
+  <script>
+    // A global array to cache the list of all products fetched from the server.
+    let allProducts = [];
+
+    /**
+     * Asynchronously fetches the complete product list from the '/api/list' endpoint,
+     * stores them in the `allProducts` array, and calls `displayProducts` to render them.
+     */
+    async function loadProducts() {
+      try {
+        const res = await fetch('/api/list');
+        allProducts = await res.json();
+        displayProducts(allProducts);
+      } catch (err) {
+        console.error("Error loading products:", err);
+      }
+    }
+
+    /**
+     * Renders an array of product objects into HTML table rows and
+     * populates the main product table with the results.
+     */
+    function displayProducts(products) {
+      const tableBody = document.getElementById('productTableBody');
+      tableBody.innerHTML = products.map(p => `
+        <tr>
+            <td>${p.id}</td>
+            <td>${p.name}</td>
+            <td>${p.model}</td>
+            <td>${p.price}</td>
+            <td><img src="image/${p.image}" alt="${p.name}"></td>
+            <td><input type="checkbox" name="selectedProduct" value="${p.id}"></td>
+        </tr>
+      `).join('');
+    }
+
+    /**
+     * Gathers all the products that have been checked and displays a
+     * summary of the selection in a simple browser alert box.
+     */
+    function confirmSelection() {
+      const selected = Array.from(document.querySelectorAll('input[name="selectedProduct"]:checked'))
+        .map(cb => cb.value);
+
+      if (selected.length > 0) {
+        const chosen = allProducts.filter(p => selected.includes(p.id.toString()));
+        let message = "You selected:\n\n";
+        chosen.forEach(p => {
+          message += `${p.name} (${p.model}) - ₹${p.price}\n`;
+        });
+        alert(message);
+      } else {
+        alert("Please select at least one product.");
+      }
+    }
+
+    /**
+     * Filters the `allProducts` array based on the text in the search box
+     * and updates the table to display only the matching results.
+     */
+    function filterProducts() {
+      const search = document.getElementById("searchBox").value.toLowerCase();
+      const filtered = allProducts.filter(p =>
+        p.name.toLowerCase().includes(search) || p.id.toString() === search
+      );
+      displayProducts(filtered);
+    }
+
+    /**
+     * Clears the search box and re-displays the full, unfiltered list of all products.
+     */
+    function resetSearch() {
+        document.getElementById("searchBox").value = "";
+        displayProducts(allProducts);
+    }
+
+    /**
+     * Collects all selected products, sends their data to the server to prepare for billing,
+     * and then redirects the user to the final billing page.
+     */
+    function proceedToBill() {
+      const selectedIds = Array.from(document.querySelectorAll('input[name="selectedProduct"]:checked'))
+        .map(cb => cb.value);
+
+      if (selectedIds.length === 0) {
+        alert("Please select at least one product.");
+        return;
+      }
+
+      const selectedProducts = allProducts.filter(p => selectedIds.includes(p.id.toString()));
+
+      fetch('/prepare-bill', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ products: selectedProducts })
+      }).then(res => {
+        if (res.ok) {
+          window.location.href = "/e21bill.html";
+        } else {
+          alert("Error preparing bill. Try again.");
+        }
+      }).catch(err => {
+        console.error(err);
+        alert("Server error.");
+      });
+    }
+
+    // This function runs when the page first loads to fetch and display all products.
+    loadProducts();
+  </script>
+</body>
+</html>

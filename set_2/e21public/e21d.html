@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Add Products</title>
+        <style>
+            body { font-family: sans-serif; }
+            form { max-width: 500px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+            div { margin-bottom: 10px; }
+            label { display: block; margin-bottom: 5px; }
+            input[type="text"], input[type="number"], input[type="url"] { width: 100%; padding: 8px; box-sizing: border-box; }
+            button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px; }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align:center;">Add Products  for Maya Bazaar</h1>
+        <form id="deleteForm">
+            <label>Id: </label>
+            <input type="number" name="id" id="deleteId" required>
+            <br><br>
+            <button type="submit">Delete Product</button>
+        </form>
+        <button type="button" onclick="location.href='/create'">Add Product</button>
+        <button type="button" onclick="location.href='/list'">View Products</button>
+        <button type="button" onclick="location.href='/update'">Update Products</button><br><br>
+        <button type="button" onclick="location.href='/e21c.html'">View Created Products</button>         
+        <script>
+            /**
+             * Adds an event listener to the delete form. When the form is submitted,
+             * it prevents the default page reload, gets the product ID from the input field,
+             * and sends a POST request to the '/api/delete' endpoint with the ID.
+             * It then displays the server's response message in an alert box.
+             */
+            document.getElementById('deleteForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const id = document.getElementById('deleteId').value;
+                try {
+                    const res = await fetch('/api/delete', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: parseInt(id) })
+                    }
+                );
+                
+                const data = await res.json();
+                alert(data.message);
+
+            } catch (err) {
+                console.error(err);
+                alert('An error occurred while deleting the product.');
+            }
+        });
+        </script>
+    </body>
+</html>
