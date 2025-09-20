@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Product / Updated Product</title>
+  <style>
+    table { border-collapse: collapse; width: 70%; margin: 20px auto; }
+    th, td { border: 1px solid #25f095; padding: 8px; text-align: center; }
+    th { background: #53ecf4; }
+    img { width: 80px; height: auto; }
+    button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px; }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">New Products</h2>
+  <table id="tempTable">
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Model</th><th>Price</th><th>Image</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2 style="text-align:center;">Updated Products</h2>
+  <table id="updateTable">
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Model</th><th>Price</th><th>Image</th>
+      </tr>
+    </thead> 
+    <tbody></tbody>
+  </table>
+
+  <button onclick="location.href='/create'">Add Another Product</button>
+  <button onclick="location.href='/list'">View Products</button>
+  <button onclick="location.href='/update'">Update Products</button><br><br>
+  <button type="button" onclick="location.href='/delete'">delete Products</button>
+
+<script>
+async function loadTempProducts() {
+    const res = await fetch("/api/temp-products");
+    const data = await res.json();
+    const tbody = document.querySelector("#tempTable tbody");
+    tbody.innerHTML = "";
+    data.forEach(p => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${p.id}</td>
+            <td>${p.name}</td>
+            <td>${p.model}</td>
+            <td>${p.price}</td>
+            <td><img src="image/${p.image}" alt="${p.name}"></td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+async function loadUpdatedProducts() {
+    const res = await fetch("/api/temp-updated-products");
+    const data = await res.json();
+    const tbody = document.querySelector("#updateTable tbody");
+    tbody.innerHTML = "";
+    data.forEach(p => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${p.id}</td>
+            <td>${p.name}</td>
+            <td>${p.model}</td>
+            <td>${p.price}</td>
+            <td><img src="image/${p.image}" alt="${p.name}"></td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+// Add product from query params after redirect
+function addProductFromQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const name = params.get("name");
+    const model = params.get("model");
+    const price = params.get("price");
+    const image = params.get("image");
+    const type = params.get("type"); // "new" or "update"
+
+    if (!id || !name || !model || !price || !image) return;
+
+    const tbody = type === "update" 
+        ? document.querySelector("#updateTable tbody")
+        : document.querySelector("#tempTable tbody");
+
+    const row = document.createElement("tr");
+    row.innerHTML = `
+        <td>${id}</td>
+        <td>${name}</td>
+        <td>${model}</td>
+        <td>${price}</td>
+        <td><img src="image/${image}" alt="${name}"></td>
+    `;
+    tbody.appendChild(row);
+}
+
+// Load both tables and then add redirected product
+loadTempProducts();
+loadUpdatedProducts();
+addProductFromQueryParams();
+</script>
+
+</body>
+</html>

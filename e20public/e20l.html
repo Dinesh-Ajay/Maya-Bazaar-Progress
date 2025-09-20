@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Products</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; table-layout: fixed; }
+    th, td { border: 1px solid #31e795; padding: 8px; text-align: center; vertical-align: middle; word-wrap: break-word; }
+    th { background-color: #55dbf3; }
+    button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px; }
+
+    /* Column widths */
+    td:nth-child(1), th:nth-child(1) { width: 8%;  }
+    td:nth-child(2), th:nth-child(2) { width: 20%; }
+    td:nth-child(3), th:nth-child(3) { width: 20%; }
+    td:nth-child(4), th:nth-child(4) { width: 16%; }
+    td:nth-child(5), th:nth-child(5) { width: 36%; }
+
+    /* Image styling */
+    td img { width: 280px; height: auto; border-radius: 6px; display: block; margin: auto; }
+
+    .search-bar { margin: 20px 0; }
+    .search-bar input[type="text"] {
+      padding: 8px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .search-bar button {
+      padding: 8px 12px;
+      margin-left: 5px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .search-bar button:hover { background: #0056b3; }
+
+    /* 📦 Product table */
+    #productTable {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+    #productTable th, #productTable td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    #productTable th { background: #f4f4f4; font-weight: bold; }
+    #productTable tr:nth-child(even) { background-color: #f9f9f9; }
+    #productTable img {
+      border-radius: 6px;
+      width: 60px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>All Products of Maya Bazar</h1>
+
+  <!-- 🔍 Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchBox" placeholder="Search by ID or Name">
+    <button onclick="filterProducts()">Search</button>
+    <button onclick="resetSearch()">Reset</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product Id</th><th>Name</th><th>Model</th><th>Price</th><th>Image</th>
+      </tr>
+    </thead>
+    <tbody id="productTableBody"></tbody>
+  </table>
+
+  <br><br>
+  <button onclick="location.href='/create'">Add Product</button>
+  <button type="button" onclick="location.href='/update'">Update Products</button>
+  <button type="button" onclick="location.href='/delete'">Delete Products</button><br><br>
+  <button type="button" onclick="location.href='/e20c.html'">View Created Products</button>
+
+  <script>
+    let allProducts = []; // store products
+
+    // Load products from Express API
+    async function loadProducts() {
+      try {
+        const res = await fetch('/api/list');
+        allProducts = await res.json();
+        displayProducts(allProducts);
+      } catch (err) {
+        console.error("Error loading products:", err);
+      }
+    }
+
+    // Render products into table
+    function displayProducts(products) {
+      const tableBody = document.getElementById('productTableBody');
+      tableBody.innerHTML = products.map(p => `
+        <tr>
+          <td>${p.id}</td>
+          <td>${p.name}</td>
+          <td>${p.model}</td>
+          <td>${p.price}</td>
+          <td><img src="image/${p.image}" alt="${p.name}"></td>
+        </tr>
+      `).join('');
+    }
+
+    // 🔍 Search filter (frontend only)
+    function filterProducts() {
+      const search = document.getElementById("searchBox").value.toLowerCase();
+      const filtered = allProducts.filter(p =>
+        p.name.toLowerCase().includes(search) || p.id.toString() === search
+      );
+      displayProducts(filtered);
+    }
+
+    // Reset search
+    function resetSearch() {
+      document.getElementById("searchBox").value = "";
+      displayProducts(allProducts);
+    }
+
+    // Load on page start
+    loadProducts();
+  </script>
+</body>
+</html>
