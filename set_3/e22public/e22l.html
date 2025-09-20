@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Products - Maya Bazar</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            width: 100%;
+            padding: 40px;
+            background-image: url("https://i.postimg.cc/RFqSM2rc/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+        }
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #0a2862;
+            margin-bottom: 20px;
+        }
+        /* Search Bar */
+        .search-bar {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .search-bar input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
+        /* Button Styles */
+        .btn, .search-bar button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .btn:hover, .search-bar button:hover {
+            background: #0056b3;
+        }
+        /* Product Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #0a2862;
+            color: white;
+        }
+        td img {
+            width: 100px;
+            height: auto;
+            border-radius: 6px;
+        }
+        /* Action Buttons Container */
+        .actions {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>All Products</h1>
+
+        <div class="search-bar">
+            <input type="text" id="searchBox" placeholder="Search by Product Name or ID...">
+            <button onclick="filterProducts()">Search</button>
+            <button onclick="resetSearch()">Reset</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Model</th>
+                    <th>Price (₹)</th>
+                    <th>Image</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+                </tbody>
+        </table>
+
+        <div class="actions">
+            <div>
+                <button class="btn" onclick="confirmSelection()">Confirm Selection</button>
+                <button class="btn" onclick="proceedToBill()">Proceed to Bill</button>
+            </div>
+            <div>
+                <button class="btn" onclick="location.href='/create'">Add Product</button>
+                <button class="btn" onclick="location.href='/update'">Update Product</button>
+                <button class="btn" onclick="location.href='/delete'">Delete Product</button>
+                <button class="btn" onclick="location.href='/e22c.html'">Admin Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // A global array to cache the list of all products fetched from the server.
+        let allProducts = [];
+
+        /**
+         * Asynchronously fetches the complete product list from the '/api/list' endpoint
+         * when the page loads. It stores them in the `allProducts` array and then calls
+         * `displayProducts` to render them on the page.
+         */
+        async function loadProducts() {
+            try {
+                const response = await fetch('/api/list');
+                if (!response.ok) throw new Error('Network response was not ok.');
+                allProducts = await response.json();
+                displayProducts(allProducts);
+            } catch (error) {
+                console.error("Error loading products:", error);
+                alert("Failed to load products from the server.");
+            }
+        }
+
+        /**
+         * Renders an array of product objects into HTML table rows and
+         * populates the main product table with the results.
+         * @param {Array} products - The array of product objects to display.
+         */
+        function displayProducts(products) {
+            const tableBody = document.getElementById('productTableBody');
+            tableBody.innerHTML = products.map(p => `
+                <tr>
+                    <td>${p.id}</td>
+                    <td>${p.name}</td>
+                    <td>${p.model}</td>
+                    <td>₹${p.price}</td>
+                    <td><img src="image/${p.image}" alt="${p.name}"></td>
+                    <td><input type="checkbox" name="selectedProduct" value="${p.id}"></td>
+                </tr>
+            `).join('');
+        }
+
+        /**
+         * Gathers all the products that have been checked and displays a
+         * summary of the selection in a simple browser alert box.
+         */
+        function confirmSelection() {
+            const selectedIds = Array.from(document.querySelectorAll('input[name="selectedProduct"]:checked')).map(cb => cb.value);
+            if (selectedIds.length === 0) {
+                alert("Please select at least one product.");
+                return;
+            }
+            const chosenProducts = allProducts.filter(p => selectedIds.includes(p.id.toString()));
+            let message = "You selected:\n\n";
+            chosenProducts.forEach(p => {
+                message += `${p.name} (${p.model}) - ₹${p.price}\n`;
+            });
+            alert(message);
+        }
+
+        /**
+         * Filters the `allProducts` array based on the text in the search box
+         * and updates the table to display only the matching results.
+         */
+        function filterProducts() {
+            const searchTerm = document.getElementById("searchBox").value.toLowerCase();
+            const filteredProducts = allProducts.filter(p =>
+                p.name.toLowerCase().includes(searchTerm) || p.id.toString().includes(searchTerm)
+            );
+            displayProducts(filteredProducts);
+        }
+        
+        /**
+         * Clears the search box and re-displays the full, unfiltered list of all products.
+         */
+        function resetSearch() {
+            document.getElementById("searchBox").value = "";
+            displayProducts(allProducts);
+        }
+
+        /**
+         * Collects all selected products, sends their data to the server to prepare for billing,
+         * and then redirects the user to the final billing page upon success.
+         */
+        async function proceedToBill() {
+            const selectedIds = Array.from(document.querySelectorAll('input[name="selectedProduct"]:checked')).map(cb => cb.value);
+            if (selectedIds.length === 0) {
+                alert("Please select at least one product to proceed.");
+                return;
+            }
+            const selectedProducts = allProducts.filter(p => selectedIds.includes(p.id.toString()));
+
+            try {
+                const response = await fetch('/prepare-bill', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ products: selectedProducts })
+                });
+
+                if (response.ok) {
+                    window.location.href = "/e22bill.html"; // Redirect to billing page
+                } else {
+                    alert("Error preparing bill. Please try again.");
+                }
+            } catch (error) {
+                console.error("Server connection error:", error);
+                alert("Could not connect to the server.");
+            }
+        }
+
+        // This function runs when the page first loads to fetch and display all products.
+        window.onload = loadProducts;
+    </script>
+</body>
+</html>

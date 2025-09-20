@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill Receipt - Maya Bazar</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            padding: 40px;
+            background-image: url("https://i.postimg.cc/RFqSM2rc/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Main Content Container */
+        .container {
+            width: 600px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #0a2862;
+            margin-bottom: 20px;
+        }
+        /* Review Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #0a2862;
+            color: white;
+            text-align: center;
+        }
+        /* Payment Section */
+        .payment {
+            margin-top: 30px;
+            text-align: center;
+        }
+        select {
+            padding: 10px;
+            width: 50%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        /* Button Styles */
+        .btn {
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #218838;
+        }
+        .view-btn {
+            background: #007bff;
+        }
+        .view-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Review Your Order</h1>
+
+        <table id="productReview">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price (₹)</th>
+                </tr>
+            </thead>
+            <tbody id="reviewBody">
+                </tbody>
+        </table>
+
+        <div class="payment">
+            <h2>Select Payment Method</h2>
+            <select id="paymentSelect">
+                <option value="">-- Choose Payment --</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Debit Card">Debit Card</option>
+                <option value="UPI">UPI</option>
+                <option value="Cash on Delivery">Cash on Delivery</option>
+            </select>
+            <div>
+                <button class="btn" onclick="finalizePurchase()">Buy Now</button>
+                <button class="btn view-btn" onclick="viewBill()">View Bill</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variable to store the bill data after it's fetched or finalized.
+        let lastBillData = null;
+
+        /**
+         * Fetches the selected product data from the server's '/get-bill' endpoint
+         * when the page loads and displays them in the review table.
+         */
+        async function loadSelectedProducts() {
+            try {
+                const response = await fetch('/get-bill');
+                if (!response.ok) throw new Error("Failed to load bill data");
+
+                const bill = await response.json();
+                lastBillData = bill; // Store initial data (user, products)
+
+                const reviewBody = document.getElementById('reviewBody');
+                reviewBody.innerHTML = '';
+                bill.products.forEach(p => {
+                    reviewBody.innerHTML += `<tr><td>${p.name} (${p.model})</td><td>₹${p.price}</td></tr>`;
+                });
+            } catch (err) {
+                console.error(err);
+                alert("Error loading selected products.");
+            }
+        }
+        
+        // Calls the function to load product data as soon as the page is ready.
+        window.onload = loadSelectedProducts;
+
+        /**
+         * Handles the final purchase. It reads the selected payment method, calculates
+         * the subtotal, GST, and total amount, then sends the complete bill data to
+         * the server's '/bill' endpoint to be saved.
+         */
+        async function finalizePurchase() {
+            if (!lastBillData || !lastBillData.products || lastBillData.products.length === 0) {
+                alert("No products selected!");
+                return;
+            }
+
+            const paymentMethod = document.getElementById('paymentSelect').value;
+            if (!paymentMethod) {
+                alert("Please select a payment method.");
+                return;
+            }
+
+            try {
+                // The server will calculate the final amounts, we just send the payment method.
+                const response = await fetch('/bill', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ paymentMethod: paymentMethod })
+                });
+
+                if (response.ok) {
+                    alert("Purchase Successful! Your bill has been recorded.");
+                    // After purchase, we can update the local data if needed, or disable the button.
+                    // For now, the user can click "View Bill".
+                } else {
+                    alert("Error saving bill. Please try again.");
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Error connecting to the server.");
+            }
+        }
+
+        /**
+         * Opens a new browser window to display a formatted receipt. This function
+         * constructs the bill on the client-side for immediate viewing.
+         */
+        function viewBill() {
+            if (!lastBillData || !lastBillData.products || lastBillData.products.length === 0) {
+                alert("No bill data available to view.");
+                return;
+            }
+            
+            // Recalculate totals for display, ensuring they are numbers
+            let subtotal = 0;
+            lastBillData.products.forEach(p => subtotal += Number(p.price));
+            const gstPercent = 2;
+            const gstAmount = (subtotal * gstPercent) / 100;
+            const totalAmount = subtotal + gstAmount;
+
+            const billWindow = window.open("", "BillReceipt", "width=700,height=800,scrollbars=yes");
+            billWindow.document.write(`
+                <html>
+                    <head><title>Bill Receipt - ${lastBillData.user}</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; }
+                        h1 { text-align: center; color: #0a2862; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                        th, td { border: 1px solid #ddd; padding: 8px; }
+                        th { background-color: #f2f2f2; }
+                        .footer { margin-top: 30px; text-align: center; font-style: italic; }
+                    </style>
+                    </head>
+                    <body>
+                        <h1>Maya Bazar - Bill Receipt</h1>
+                        <p><strong>Customer:</strong> ${lastBillData.user}</p>
+                        <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+                        
+                        <h3>Products Purchased</h3>
+                        <table>
+                            <thead><tr><th>Product</th><th>Price</th></tr></thead>
+                            <tbody>
+                                ${lastBillData.products.map(p => `<tr><td>${p.name} (${p.model})</td><td>₹${p.price.toFixed(2)}</td></tr>`).join('')}
+                            </tbody>
+                        </table>
+
+                        <h3>Billing Summary</h3>
+                        <table>
+                            <tbody>
+                                <tr><td><strong>Subtotal</strong></td><td>₹${subtotal.toFixed(2)}</td></tr>
+                                <tr><td><strong>GST (${gstPercent}%)</strong></td><td>₹${gstAmount.toFixed(2)}</td></tr>
+                                <tr><td><strong>Total Amount</strong></td><td><strong>₹${totalAmount.toFixed(2)}</strong></td></tr>
+                            </tbody>
+                        </table>
+                        <div class="footer">Thank you for shopping at Maya Bazar!</div>
+                    </body>
+                </html>
+            `);
+            billWindow.document.close();
+        }
+    </script>
+</body>
+</html>

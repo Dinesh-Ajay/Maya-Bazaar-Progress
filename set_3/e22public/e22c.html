@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Changes - Maya Bazar</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            width: 100%;
+            padding: 40px;
+            background-image: url("https://i.postimg.cc/RFqSM2rc/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+        }
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #0a2862;
+            margin-bottom: 20px;
+        }
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #0a2862;
+            color: white;
+        }
+        td img {
+            width: 100px;
+            height: auto;
+            border-radius: 6px;
+        }
+        /* Button Container */
+        .nav-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        /* General Button Style */
+        .btn {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recent Product Changes</h1>
+
+        <h2>New Products Added This Session</h2>
+        <table id="tempTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Model</th>
+                    <th>Price (₹)</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Newly created product rows will be inserted here -->
+            </tbody>
+        </table>
+
+        <h2>Products Updated This Session</h2>
+        <table id="updateTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Model</th>
+                    <th>Price (₹)</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Updated product rows will be inserted here -->
+            </tbody>
+        </table>
+
+        <div class="nav-buttons">
+            <button class="btn" onclick="location.href='/create'">Add Another Product</button>
+            <button class="btn" onclick="location.href='/update'">Update Another Product</button>
+            <button class="btn" onclick="location.href='/list'">View Full Product List</button>
+            <button class="btn" onclick="location.href='/delete'">Delete Products</button>
+        </div>
+    </div>
+
+<script>
+    /**
+     * Fetches the list of newly created products from the server's temporary storage
+     * via the API and dynamically adds them to the 'New Products' table.
+     */
+    async function loadTempProducts() {
+        try {
+            // FIX: Changed to a relative URL. This works correctly when the HTML is served by Express.
+            const res = await fetch("/api/temp-products");
+            const data = await res.json();
+            const tbody = document.querySelector("#tempTable tbody");
+            tbody.innerHTML = ""; // Clear existing rows
+            if (data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5">No new products have been added in this session.</td></tr>`;
+                return;
+            }
+            data.forEach(p => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${p.id}</td>
+                    <td>${p.name}</td>
+                    <td>${p.model}</td>
+                    <td>₹${p.price}</td>
+                    <td><img src="image/${p.image}" alt="${p.name}"></td>
+                `;
+                tbody.appendChild(row);
+            });
+        } catch (error) {
+            console.error("Failed to load temporary products:", error);
+        }
+    }
+
+    /**
+     * Fetches the list of recently updated products from the server's temporary storage
+     * via the API and dynamically adds them to the 'Updated Products' table.
+     */
+    async function loadUpdatedProducts() {
+        try {
+            // FIX: Changed to a relative URL. This works correctly when the HTML is served by Express.
+            const res = await fetch("/api/temp-updated-products");
+            const data = await res.json();
+            const tbody = document.querySelector("#updateTable tbody");
+            tbody.innerHTML = ""; // Clear existing rows
+             if (data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5">No products have been updated in this session.</td></tr>`;
+                return;
+            }
+            data.forEach(p => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${p.id}</td>
+                    <td>${p.name}</td>
+                    <td>${p.model}</td>
+                    <td>₹${p.price}</td>
+                    <td><img src="image/${p.image}" alt="${p.name}"></td>
+                `;
+                tbody.appendChild(row);
+            });
+        } catch (error) {
+            console.error("Failed to load updated products:", error);
+        }
+    }
+
+    // When the page loads, execute these functions to populate the tables.
+    document.addEventListener('DOMContentLoaded', () => {
+        loadTempProducts();
+        loadUpdatedProducts();
+    });
+</script>
+
+</body>
+</html>

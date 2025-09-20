@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Product - Maya Bazar</title>
+    <style>
+        /* Base Styles (consistent with other admin pages) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("https://i.postimg.cc/RFqSM2rc/bg.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        /* Form Container */
+        .form-container {
+            width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #0a2862;
+            margin-bottom: 25px;
+        }
+        /* Form elements */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        /* Button Styles */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #c82333;
+        }
+        .nav-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .nav-btn {
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .nav-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Delete Product</h1>
+        <form id="deleteForm">
+            <div class="form-group">
+                <label for="deleteId">Product ID to Delete:</label>
+                <input type="number" id="deleteId" name="id" required>
+            </div>
+            <button type="submit" class="btn">Delete Product</button>
+        </form>
+
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="location.href='/list'">View All Products</button>
+            <button class="nav-btn" onclick="location.href='/create'">Add Product</button>
+            <button class="nav-btn" onclick="location.href='/update'">Update Product</button>
+            <button class="nav-btn" onclick="location.href='/e22c.html'">Admin Changes</button>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Adds an event listener to the delete form. When the form is submitted,
+         * it prevents the default page reload, gets the product ID from the input field,
+         * and sends a POST request to the '/api/delete' endpoint with the ID.
+         * It then displays the server's response message in an alert box.
+         */
+        document.getElementById('deleteForm').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent the form from reloading the page
+            
+            const id = document.getElementById('deleteId').value;
+            if (!id) {
+                alert('Please enter a Product ID.');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/delete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: parseInt(id) })
+                });
+                
+                const result = await response.json();
+                alert(result.message); // Show success or error message from the server
+                document.getElementById('deleteForm').reset(); // Clear the form
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while deleting the product.');
+            }
+        });
+    </script>
+</body>
+</html>
