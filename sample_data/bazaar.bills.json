@@ -1,0 +1,457 @@
+[{
+  "_id": {
+    "$oid": "68ce1973df500da6da18a1fc"
+  },
+  "user": "Ajay",
+  "products": [
+    {
+      "_id": "68c8c4c6be639fcffc74bc60",
+      "id": 34,
+      "name": "Vivo X100 Pro",
+      "model": "Dimensity 9300",
+      "specifics": "16GB RAM, 512GB Storage, Zeiss Camera",
+      "price": 89999,
+      "image": "eg_34.jpg"
+    },
+    {
+      "_id": "68c8c4c6be639fcffc74bc65",
+      "id": 39,
+      "name": "Crown Smart Watch 1.95",
+      "model": "Amazon Model",
+      "specifics": "40mm/44mm, AMOLED Display",
+      "price": 4500,
+      "image": "eg_39.jpg"
+    },
+    {
+      "_id": "68c8c4c6be639fcffc74bc78",
+      "id": 58,
+      "name": "TCL C755 QD-Mini LED (2024)",
+      "model": "AiPQ Processor",
+      "specifics": "75-inch, 4K HDR, Google TV",
+      "price": 139999,
+      "image": "eg_58.jpg"
+    }
+  ],
+  "subtotal": 234498,
+  "gstPercent": 2,
+  "gstAmount": 4689.96,
+  "totalAmount": 239187.96,
+  "paymentMethod": "UPI",
+  "date": "20/9/2025, 8:33:15 am"
+},
+{
+  "_id": {
+    "$oid": "68ce1b823b0fe749511e674e"
+  },
+  "user": "Challa",
+  "products": [
+    {
+      "_id": "68c8c577be639fcffc74bc7c",
+      "id": 1,
+      "name": "Aashirvaad Atta",
+      "model": "Whole Wheat Flour",
+      "specifics": "10kg Pack",
+      "price": 520,
+      "image": "g_1.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc7d",
+      "id": 2,
+      "name": "India Gate Basmati Rice",
+      "model": "Classic Basmati",
+      "specifics": "5kg Pack",
+      "price": 650,
+      "image": "g_2.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc7e",
+      "id": 3,
+      "name": "Tata Salt",
+      "model": "Iodised Salt",
+      "specifics": "1kg Pack",
+      "price": 28,
+      "image": "g_3.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc7f",
+      "id": 4,
+      "name": "Fortune Sunflower Oil",
+      "model": "Refined Sunflower Oil",
+      "specifics": "5L Jar",
+      "price": 850,
+      "image": "g_4.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc80",
+      "id": 5,
+      "name": "Amul Butter",
+      "model": "Salted Butter",
+      "specifics": "500g Pack",
+      "price": 280,
+      "image": "g_5.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc82",
+      "id": 7,
+      "name": "Maggi Instant Noodles",
+      "model": "Masala 2-Minute",
+      "specifics": "12-Pack",
+      "price": 180,
+      "image": "g_7.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc85",
+      "id": 10,
+      "name": "Mother Dairy Toned Milk",
+      "model": "Fresh Pouch",
+      "specifics": "1L Pack",
+      "price": 58,
+      "image": "g_10.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc89",
+      "id": 14,
+      "name": "Bru Instant Coffee",
+      "model": "Roast & Ground",
+      "specifics": "200g Jar",
+      "price": 260,
+      "image": "g_14.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc8c",
+      "id": 17,
+      "name": "Lays Potato Chips",
+      "model": "Classic Salted",
+      "specifics": "200g Pack",
+      "price": 90,
+      "image": "g_17.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc8f",
+      "id": 20,
+      "name": "Surf Excel Matic Liquid",
+      "model": "Top Load",
+      "specifics": "2L Bottle",
+      "price": 430,
+      "image": "g_20.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc90",
+      "id": 21,
+      "name": "Vim Dishwash Gel",
+      "model": "Lemon Fresh",
+      "specifics": "1.5L Bottle",
+      "price": 260,
+      "image": "g_21.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc91",
+      "id": 22,
+      "name": "Dettol Antiseptic Liquid",
+      "model": "Original",
+      "specifics": "1L Bottle",
+      "price": 340,
+      "image": "g_22.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc93",
+      "id": 24,
+      "name": "Closeup Toothpaste",
+      "model": "Red Hot Gel",
+      "specifics": "150g Pack",
+      "price": 110,
+      "image": "g_24.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc94",
+      "id": 25,
+      "name": "Dove Shampoo",
+      "model": "Daily Shine",
+      "specifics": "650ml Bottle",
+      "price": 410,
+      "image": "g_25.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc98",
+      "id": 29,
+      "name": "Himalaya Face Wash",
+      "model": "Neem Purifying",
+      "specifics": "200ml Tube",
+      "price": 180,
+      "image": "g_29.jpg"
+    }
+  ],
+  "subtotal": 4646,
+  "gstPercent": 2,
+  "gstAmount": 92.92,
+  "totalAmount": 4738.92,
+  "paymentMethod": "Credit Card",
+  "date": "20/9/2025, 8:42:02 am"
+},
+{
+  "_id": {
+    "$oid": "68ce23502ce80d6dd30e0e8d"
+  },
+  "user": "Dinesh Ajay",
+  "products": [
+    {
+      "_id": "68c8c577be639fcffc74bc82",
+      "id": 7,
+      "name": "Maggi Instant Noodles",
+      "model": "Masala 2-Minute",
+      "specifics": "12-Pack",
+      "price": 180,
+      "image": "g_7.jpg"
+    }
+  ],
+  "subtotal": 180,
+  "gstPercent": 2,
+  "gstAmount": 3.6,
+  "totalAmount": 183.6,
+  "paymentMethod": "UPI",
+  "date": "20/9/2025, 9:15:20 am"
+},
+{
+  "_id": {
+    "$oid": "68ce4b562f2d70308b5a9396"
+  },
+  "user": "Dinesh Ajay",
+  "products": [
+    {
+      "_id": "68c8c577be639fcffc74bc7d",
+      "id": 2,
+      "name": "India Gate Basmati Rice",
+      "model": "Classic Basmati",
+      "specifics": "5kg Pack",
+      "price": 650,
+      "image": "g_2.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc80",
+      "id": 5,
+      "name": "Amul Butter",
+      "model": "Salted Butter",
+      "specifics": "500g Pack",
+      "price": 280,
+      "image": "g_5.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc82",
+      "id": 7,
+      "name": "Maggi Instant Noodles",
+      "model": "Masala 2-Minute",
+      "specifics": "12-Pack",
+      "price": 180,
+      "image": "g_7.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc85",
+      "id": 10,
+      "name": "Mother Dairy Toned Milk",
+      "model": "Fresh Pouch",
+      "specifics": "1L Pack",
+      "price": 58,
+      "image": "g_10.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc87",
+      "id": 12,
+      "name": "Kellogg’s Corn Flakes",
+      "model": "Original",
+      "specifics": "1.2kg Pack",
+      "price": 430,
+      "image": "g_12.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc88",
+      "id": 13,
+      "name": "Dabur Honey",
+      "model": "Pure Honey",
+      "specifics": "1kg Jar",
+      "price": 400,
+      "image": "g_13.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc89",
+      "id": 14,
+      "name": "Bru Instant Coffee",
+      "model": "Roast & Ground",
+      "specifics": "200g Jar",
+      "price": 260,
+      "image": "g_14.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc8b",
+      "id": 16,
+      "name": "Hershey’s Chocolate Syrup",
+      "model": "Classic",
+      "specifics": "650g Bottle",
+      "price": 180,
+      "image": "g_16.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc8c",
+      "id": 17,
+      "name": "Lays Potato Chips",
+      "model": "Classic Salted",
+      "specifics": "200g Pack",
+      "price": 90,
+      "image": "g_17.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc90",
+      "id": 21,
+      "name": "Vim Dishwash Gel",
+      "model": "Lemon Fresh",
+      "specifics": "1.5L Bottle",
+      "price": 260,
+      "image": "g_21.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc91",
+      "id": 22,
+      "name": "Dettol Antiseptic Liquid",
+      "model": "Original",
+      "specifics": "1L Bottle",
+      "price": 340,
+      "image": "g_22.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc93",
+      "id": 24,
+      "name": "Closeup Toothpaste",
+      "model": "Red Hot Gel",
+      "specifics": "150g Pack",
+      "price": 110,
+      "image": "g_24.jpg"
+    },
+    {
+      "_id": "68c8c577be639fcffc74bc98",
+      "id": 29,
+      "name": "Himalaya Face Wash",
+      "model": "Neem Purifying",
+      "specifics": "200ml Tube",
+      "price": 180,
+      "image": "g_29.jpg"
+    }
+  ],
+  "subtotal": 3418,
+  "gstPercent": 2,
+  "gstAmount": 68.36,
+  "totalAmount": 3486.36,
+  "paymentMethod": "UPI",
+  "date": "20/9/2025, 12:06:06 pm"
+},
+{
+  "_id": {
+    "$oid": "68ce4d314e0f49033a1210ac"
+  },
+  "user": "Ajay",
+  "products": [
+    {
+      "_id": "68c8c4c6be639fcffc74bc60",
+      "id": 34,
+      "name": "Vivo X100 Pro",
+      "model": "Dimensity 9300",
+      "specifics": "16GB RAM, 512GB Storage, Zeiss Camera",
+      "price": 89999,
+      "image": "eg_34.jpg"
+    },
+    {
+      "_id": "68c8c4c6be639fcffc74bc65",
+      "id": 39,
+      "name": "Crown Smart Watch 1.95",
+      "model": "Amazon Model",
+      "specifics": "40mm/44mm, AMOLED Display",
+      "price": 4500,
+      "image": "eg_39.jpg"
+    },
+    {
+      "_id": "68c8c4c6be639fcffc74bc6d",
+      "id": 47,
+      "name": "Apple iPad Air 13-inch M2 (2024)",
+      "model": "Apple M2 Chip",
+      "specifics": "8GB RAM, 512GB Storage, Liquid Retina Display",
+      "price": 84900,
+      "image": "eg_47.jpg"
+    },
+    {
+      "_id": "68c8c4c6be639fcffc74bc78",
+      "id": 58,
+      "name": "TCL C755 QD-Mini LED (2024)",
+      "model": "AiPQ Processor",
+      "specifics": "75-inch, 4K HDR, Google TV",
+      "price": 139999,
+      "image": "eg_58.jpg"
+    }
+  ],
+  "subtotal": 319398,
+  "gstPercent": 2,
+  "gstAmount": 6387.96,
+  "totalAmount": 325785.96,
+  "paymentMethod": "Credit Card",
+  "date": "20/9/2025, 12:14:01 pm"
+},
+{
+  "_id": {
+    "$oid": "68ce6e10533ef0af4c4e9ce3"
+  },
+  "user": "Dinesh Ajay",
+  "products": [
+    {
+      "_id": "68c8c4c6be639fcffc74bc42",
+      "id": 4,
+      "name": "Dell XPS 14 9440 (2024",
+      "model": "Intel Core Ultra 7 155H, Intel Arc GPU",
+      "specifics": "16GB RAM, 512GB SSD, 14.5-inch 3.2K OLED",
+      "price": 159999,
+      "image": "eg_4.jpg"
+    }
+  ],
+  "subtotal": 159999,
+  "gstPercent": 2,
+  "gstAmount": 3199.98,
+  "totalAmount": 163198.98,
+  "paymentMethod": "UPI",
+  "date": "20/9/2025, 2:34:16 pm"
+},
+{
+  "_id": {
+    "$oid": "68ce70d4a014b8fa17da17dd"
+  },
+  "user": "Dinesh Ajay",
+  "products": [
+    {
+      "_id": "68c8c4c6be639fcffc74bc65",
+      "id": 39,
+      "name": "Crown Smart Watch 1.95",
+      "model": "Amazon Model",
+      "specifics": "40mm/44mm, AMOLED Display",
+      "price": 4500,
+      "image": "eg_39.jpg"
+    },
+    {
+      "_id": "68c8c4c6be639fcffc74bc7a",
+      "id": 60,
+      "name": "Panasonic MZ2000 OLED TV",
+      "model": "HCX Pro AI Processor",
+      "specifics": "77-inch, 4K HDR, OLED Panel",
+      "price": 249999,
+      "image": "eg_60.jpg"
+    },
+    {
+      "_id": "68ce6ffca014b8fa17da17dc",
+      "id": 61,
+      "name": "MacBook Air 13",
+      "model": "MacBook Air white symbols",
+      "price": 14980,
+      "image": "eg_61.jpg"
+    }
+  ],
+  "subtotal": 269479,
+  "gstPercent": 2,
+  "gstAmount": 5389.58,
+  "totalAmount": 274868.58,
+  "paymentMethod": "UPI",
+  "date": "20/9/2025, 2:46:04 pm"
+}]

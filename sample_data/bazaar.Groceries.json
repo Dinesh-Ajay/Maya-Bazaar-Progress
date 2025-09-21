@@ -1,0 +1,330 @@
+[{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc7c"
+  },
+  "id": 1,
+  "name": "Aashirvaad Atta",
+  "model": "Whole Wheat Flour",
+  "specifics": "10kg Pack",
+  "price": 520,
+  "image": "g_1.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc7d"
+  },
+  "id": 2,
+  "name": "India Gate Basmati Rice",
+  "model": "Classic Basmati",
+  "specifics": "5kg Pack",
+  "price": 650,
+  "image": "g_2.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc7e"
+  },
+  "id": 3,
+  "name": "Tata Salt",
+  "model": "Iodised Salt",
+  "specifics": "1kg Pack",
+  "price": 28,
+  "image": "g_3.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc7f"
+  },
+  "id": 4,
+  "name": "Fortune Sunflower Oil",
+  "model": "Refined Sunflower Oil",
+  "specifics": "5L Jar",
+  "price": 850,
+  "image": "g_4.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc80"
+  },
+  "id": 5,
+  "name": "Amul Butter",
+  "model": "Salted Butter",
+  "specifics": "500g Pack",
+  "price": 280,
+  "image": "g_5.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc81"
+  },
+  "id": 6,
+  "name": "Britannia Good Day Biscuits",
+  "model": "Cashew Cookies",
+  "specifics": "1kg Pack",
+  "price": 240,
+  "image": "g_6.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc82"
+  },
+  "id": 7,
+  "name": "Maggi Instant Noodles",
+  "model": "Masala 2-Minute",
+  "specifics": "12-Pack",
+  "price": 180,
+  "image": "g_7.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc83"
+  },
+  "id": 8,
+  "name": "Nescafe Classic Coffee",
+  "model": "Instant Coffee",
+  "specifics": "200g Jar",
+  "price": 650,
+  "image": "g_8.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc84"
+  },
+  "id": 9,
+  "name": "Red Label Tea",
+  "model": "Natural Care",
+  "specifics": "1kg Pack",
+  "price": 510,
+  "image": "g_9.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc85"
+  },
+  "id": 10,
+  "name": "Mother Dairy Toned Milk",
+  "model": "Fresh Pouch",
+  "specifics": "1L Pack",
+  "price": 58,
+  "image": "g_10.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc86"
+  },
+  "id": 11,
+  "name": "Parle-G Biscuits",
+  "model": "Original Glucose",
+  "specifics": "800g Family Pack",
+  "price": 5,
+  "image": "g_11.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc87"
+  },
+  "id": 12,
+  "name": "Kellogg’s Corn Flakes",
+  "model": "Original",
+  "specifics": "1.2kg Pack",
+  "price": 430,
+  "image": "g_12.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc88"
+  },
+  "id": 13,
+  "name": "Dabur Honey",
+  "model": "Pure Honey",
+  "specifics": "1kg Jar",
+  "price": 400,
+  "image": "g_13.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc89"
+  },
+  "id": 14,
+  "name": "Bru Instant Coffee",
+  "model": "Roast & Ground",
+  "specifics": "200g Jar",
+  "price": 260,
+  "image": "g_14.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc8a"
+  },
+  "id": 15,
+  "name": "Tropicana Orange Juice",
+  "model": "100% Juice",
+  "specifics": "1L Pack",
+  "price": 120,
+  "image": "g_15.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc8b"
+  },
+  "id": 16,
+  "name": "Hershey’s Chocolate Syrup",
+  "model": "Classic",
+  "specifics": "650g Bottle",
+  "price": 180,
+  "image": "g_16.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc8c"
+  },
+  "id": 17,
+  "name": "Lays Potato Chips",
+  "model": "Classic Salted",
+  "specifics": "200g Pack",
+  "price": 90,
+  "image": "g_17.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc8d"
+  },
+  "id": 18,
+  "name": "Bournvita Health Drink",
+  "model": "Chocolate Nutrition",
+  "specifics": "1kg Jar",
+  "price": 430,
+  "image": "g_18.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc8e"
+  },
+  "id": 19,
+  "name": "Horlicks Malted Drink",
+  "model": "Classic Malt",
+  "specifics": "1kg Jar",
+  "price": 450,
+  "image": "g_19.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc8f"
+  },
+  "id": 20,
+  "name": "Surf Excel Matic Liquid",
+  "model": "Top Load",
+  "specifics": "2L Bottle",
+  "price": 430,
+  "image": "g_20.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc90"
+  },
+  "id": 21,
+  "name": "Vim Dishwash Gel",
+  "model": "Lemon Fresh",
+  "specifics": "1.5L Bottle",
+  "price": 260,
+  "image": "g_21.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc91"
+  },
+  "id": 22,
+  "name": "Dettol Antiseptic Liquid",
+  "model": "Original",
+  "specifics": "1L Bottle",
+  "price": 340,
+  "image": "g_22.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc92"
+  },
+  "id": 23,
+  "name": "Colgate Toothpaste",
+  "model": "Strong Teeth",
+  "specifics": "200g Pack",
+  "price": 120,
+  "image": "g_23.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc93"
+  },
+  "id": 24,
+  "name": "Closeup Toothpaste",
+  "model": "Red Hot Gel",
+  "specifics": "150g Pack",
+  "price": 110,
+  "image": "g_24.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc94"
+  },
+  "id": 25,
+  "name": "Dove Shampoo",
+  "model": "Daily Shine",
+  "specifics": "650ml Bottle",
+  "price": 410,
+  "image": "g_25.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc95"
+  },
+  "id": 26,
+  "name": "Pantene Hair Conditioner",
+  "model": "Silky Smooth Care",
+  "specifics": "650ml Bottle",
+  "price": 430,
+  "image": "g_26.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc96"
+  },
+  "id": 27,
+  "name": "Lifebuoy Hand Wash",
+  "model": "Total 10",
+  "specifics": "750ml Pump",
+  "price": 170,
+  "image": "g_27.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc97"
+  },
+  "id": 28,
+  "name": "Lux Body Wash",
+  "model": "Velvet Glow",
+  "specifics": "500ml Bottle",
+  "price": 250,
+  "image": "g_28.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc98"
+  },
+  "id": 29,
+  "name": "Himalaya Face Wash",
+  "model": "Neem Purifying",
+  "specifics": "200ml Tube",
+  "price": 180,
+  "image": "g_29.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c577be639fcffc74bc99"
+  },
+  "id": 30,
+  "name": "Pepsodent Toothpaste",
+  "model": "Germicheck",
+  "specifics": "200g Pack",
+  "price": 120,
+  "image": "g_30.jpg"
+}]

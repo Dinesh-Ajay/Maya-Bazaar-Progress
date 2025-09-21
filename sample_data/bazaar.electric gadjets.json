@@ -1,0 +1,670 @@
+[{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc3f"
+  },
+  "id": 1,
+  "name": "Apple MacBook Pro 16-inch M3 Pro 2024",
+  "model": "M3 Pro 12-core CPU, 18-core GPU",
+  "specifics": "16GB RAM, 1TB SSD, Liquid Retina XDR Display",
+  "price": 249900,
+  "image": "eg_1.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc40"
+  },
+  "id": 2,
+  "name": "Apple MacBook Air 15-inch M3 2024",
+  "model": "M3 8-core CPU, 10-core GPU",
+  "specifics": "16GB RAM, 512GB SSD, Retina Display",
+  "price": 139900,
+  "image": "eg_2.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc41"
+  },
+  "id": 3,
+  "name": "Dell XPS 16 9640 (2024)",
+  "model": "Intel Core Ultra 9 185H, RTX 4070",
+  "specifics": "32GB RAM, 1TB SSD, OLED 16-inch 4K Display",
+  "price": 229999,
+  "image": "eg_3.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc42"
+  },
+  "id": 4,
+  "name": "Dell XPS 14 9440 (2024",
+  "model": "Intel Core Ultra 7 155H, Intel Arc GPU",
+  "specifics": "16GB RAM, 512GB SSD, 14.5-inch 3.2K OLED",
+  "price": 159999,
+  "image": "eg_4.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc43"
+  },
+  "id": 5,
+  "name": "HP Spectre x360 14 (2024)",
+  "model": "Intel Core Ultra 7 155H, Intel Arc GPU",
+  "specifics": "16GB RAM, 1TB SSD, 2-in-1 Convertible OLED",
+  "price": 159999,
+  "image": "eg_5.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc44"
+  },
+  "id": 6,
+  "name": "HP Omen Transcend 16 (2024)",
+  "model": "Intel Core i9-14900HX, RTX 4070",
+  "specifics": "32GB RAM, 1TB SSD, 240Hz QHD+ Display",
+  "price": 199999,
+  "image": "eg_6.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc45"
+  },
+  "id": 7,
+  "name": "Lenovo Yoga Pro 9i 16 (2024)",
+  "model": "Intel Core Ultra 9 185H, RTX 4060",
+  "specifics": "32GB RAM, 1TB SSD, 16-inch 3.2K Mini-LED Display",
+  "price": 189999,
+  "image": "eg_7.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc46"
+  },
+  "id": 8,
+  "name": "Lenovo Legion 9i Gen 9 (2024)",
+  "model": "Intel Core i9-14900HX, RTX 4090",
+  "specifics": "64GB RAM, 2TB SSD, Liquid Cooling",
+  "price": 399999,
+  "image": "eg_8.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc47"
+  },
+  "id": 9,
+  "name": "Asus ZenBook Pro 16X OLED 2024",
+  "model": "Intel Core Ultra 9 185H, RTX 4080",
+  "specifics": "32GB RAM, 1TB SSD, 16-inch 4K OLED HDR",
+  "price": 249999,
+  "image": "eg_9.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc48"
+  },
+  "id": 10,
+  "name": "Asus ROG Zephyrus G16 (2024)",
+  "model": "AMD Ryzen 9 8945HS, RTX 4080",
+  "specifics": "32GB RAM, 1TB SSD, 240Hz QHD+ Display",
+  "price": 239999,
+  "image": "eg_10.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc49"
+  },
+  "id": 11,
+  "name": "Acer Swift Go 16 OLED (2024)",
+  "model": "Intel Core Ultra 7 155H",
+  "specifics": "16GB RAM, 512GB SSD, 3.2K OLED Display",
+  "price": 99999,
+  "image": "eg_11.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc4a"
+  },
+  "id": 12,
+  "name": "Acer Predator Helios 18 (2024)",
+  "model": "Intel Core i9-14900HX, RTX 4090",
+  "specifics": "64GB RAM, 2TB SSD, 18-inch Mini LED",
+  "price": 349999,
+  "image": "eg_12.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc4b"
+  },
+  "id": 13,
+  "name": "Microsoft Surface Laptop Studio 2",
+  "model": "Intel Core i7-13700H, RTX 4060",
+  "specifics": "32GB RAM, 1TB SSD, Touchscreen 14.4-inch",
+  "price": 289999,
+  "image": "eg_13.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc4c"
+  },
+  "id": 14,
+  "name": "Microsoft Surface Laptop 6 (2024)",
+  "model": "Intel Core Ultra 7 165H",
+  "specifics": "16GB RAM, 512GB SSD, PixelSense Flow Display",
+  "price": 149999,
+  "image": "eg_14.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc4d"
+  },
+  "id": 15,
+  "name": "Samsung Galaxy Book4 Ultra (2024)",
+  "model": "Intel Core Ultra 9 185H, RTX 4070",
+  "specifics": "32GB RAM, 1TB SSD, Dynamic AMOLED 2X Display",
+  "price": 239999,
+  "image": "eg_15.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc4e"
+  },
+  "id": 16,
+  "name": "MSI Stealth 16 AI Studio (2024)",
+  "model": "Intel Core Ultra 9 185H, RTX 4070",
+  "specifics": "32GB RAM, 1TB SSD, 16-inch QHD+ OLED",
+  "price": 219999,
+  "image": "eg_16.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc4f"
+  },
+  "id": 17,
+  "name": "MSI Titan 18 HX (2024)",
+  "model": "Intel Core i9-14900HX, RTX 4090",
+  "specifics": "128GB RAM, 4TB SSD, 18-inch 4K Mini LED",
+  "price": 499999,
+  "image": "eg_17.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc50"
+  },
+  "id": 18,
+  "name": "Razer Blade 16 (2024)",
+  "model": "Intel Core i9-14900HX, RTX 4090",
+  "specifics": "32GB RAM, 2TB SSD, Dual-Mode Mini LED",
+  "price": 399999,
+  "image": "eg_18.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc51"
+  },
+  "id": 19,
+  "name": "Razer Blade 18 (2024)",
+  "model": "Intel Core i9-14900HX, RTX 4090",
+  "specifics": "64GB RAM, 4TB SSD, 18-inch Mini LED Display",
+  "price": 459999,
+  "image": "eg_19.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc52"
+  },
+  "id": 20,
+  "name": "LG Gram Pro 17 (2024)",
+  "model": "Intel Core Ultra 7 155H",
+  "specifics": "32GB RAM, 1TB SSD, 17-inch WQXGA",
+  "price": 189999,
+  "image": "eg_20.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc53"
+  },
+  "id": 21,
+  "name": "Apple iPhone 15 Pro Max",
+  "model": "A17 Pro Chip",
+  "specifics": "8GB RAM, up to 1TB Storage, 6.7-inch Super Retina XDR",
+  "price": 159900,
+  "image": "eg_21.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc54"
+  },
+  "id": 22,
+  "name": "Apple iPhone 15 Pro",
+  "model": "A17 Pro Chip",
+  "specifics": "8GB RAM, up to 1TB Storage, 6.1-inch Super Retina XDR",
+  "price": 134900,
+  "image": "eg_22.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc55"
+  },
+  "id": 23,
+  "name": "Apple iPhone 15 Plus",
+  "model": "A16 Bionic",
+  "specifics": "6GB RAM, up to 512GB Storage, 6.7-inch Super Retina XDR",
+  "price": 89900,
+  "image": "eg_23.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc56"
+  },
+  "id": 24,
+  "name": "Samsung Galaxy S24 Ultra",
+  "model": "Snapdragon 8 Gen 3",
+  "specifics": "12GB RAM, up to 1TB Storage, 200MP Camera",
+  "price": 129999,
+  "image": "eg_24.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc57"
+  },
+  "id": 25,
+  "name": "Samsung Galaxy S24+",
+  "model": "Snapdragon 8 Gen 3",
+  "specifics": "12GB RAM, up to 512GB Storage, 6.7-inch QHD+ AMOLED",
+  "price": 99999,
+  "image": "eg_25.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc58"
+  },
+  "id": 26,
+  "name": "Samsung Galaxy S24",
+  "model": "Snapdragon 8 Gen 3",
+  "specifics": "8GB RAM, up to 512GB Storage, 6.1-inch FHD+ AMOLED",
+  "price": 79999,
+  "image": "eg_26.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc59"
+  },
+  "id": 27,
+  "name": "Google Pixel 9 Pro XL",
+  "model": "Google Tensor G4",
+  "specifics": "16GB RAM, up to 1TB Storage, 6.9-inch LTPO OLED",
+  "price": 114999,
+  "image": "eg_27.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc5a"
+  },
+  "id": 28,
+  "name": "Google Pixel 9 Pro",
+  "model": "Google Tensor G4",
+  "specifics": "12GB RAM, up to 512GB Storage, 6.3-inch OLED",
+  "price": 99999,
+  "image": "eg_28.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc5b"
+  },
+  "id": 29,
+  "name": "OnePlus 12",
+  "model": "Snapdragon 8 Gen 3",
+  "specifics": "12GB RAM, 256GB Storage, 6.82-inch AMOLED",
+  "price": 69999,
+  "image": "eg_29.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc5c"
+  },
+  "id": 30,
+  "name": "OnePlus 12R",
+  "model": "Snapdragon 8 Gen 2",
+  "specifics": "8GB RAM, 128GB Storage, 6.78-inch AMOLED",
+  "price": 39999,
+  "image": "eg_30.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc5d"
+  },
+  "id": 31,
+  "name": "Xiaomi 14 Ultra",
+  "model": "Snapdragon 8 Gen 3",
+  "specifics": "16GB RAM, up to 1TB Storage, Leica Quad Camera",
+  "price": 99999,
+  "image": "eg_31.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc5e"
+  },
+  "id": 32,
+  "name": "Xiaomi 14",
+  "model": "Snapdragon 8 Gen 3",
+  "specifics": "12GB RAM, 512GB Storage, 6.36-inch AMOLED",
+  "price": 50000,
+  "image": "eg_32.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc5f"
+  },
+  "id": 33,
+  "name": "Oppo Find X7 Ultra",
+  "model": "Snapdragon 8 Gen 3",
+  "specifics": "16GB RAM, 512GB Storage, 6.82-inch AMOLED",
+  "price": 99999,
+  "image": "eg_33.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc60"
+  },
+  "id": 34,
+  "name": "Vivo X100 Pro",
+  "model": "Dimensity 9300",
+  "specifics": "16GB RAM, 512GB Storage, Zeiss Camera",
+  "price": 89999,
+  "image": "eg_34.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc61"
+  },
+  "id": 35,
+  "name": "Sony Xperia 1 VI",
+  "model": "Snapdragon 8 Gen 3",
+  "specifics": "12GB RAM, 256GB Storage, 4K OLED Display",
+  "price": 119999,
+  "image": "eg_35.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc62"
+  },
+  "id": 36,
+  "name": "Apple Watch Ultra 2",
+  "model": "S9 SiP",
+  "specifics": "49mm, Rugged Titanium Case, GPS + Cellular",
+  "price": 89900,
+  "image": "eg_36.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc63"
+  },
+  "id": 37,
+  "name": "Apple Watch Series 10",
+  "model": "S10 SiP",
+  "specifics": "41mm/45mm, Always-On Retina Display",
+  "price": 45900,
+  "image": "eg_37.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc64"
+  },
+  "id": 38,
+  "name": "Samsung Galaxy Watch 7 Ultra",
+  "model": "Exynos W1000",
+  "specifics": "47mm, Sapphire Crystal, LTE",
+  "price": 55999,
+  "image": "eg_38.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc65"
+  },
+  "id": 39,
+  "name": "Crown Smart Watch 1.95",
+  "model": "Amazon Model",
+  "specifics": "40mm/44mm, AMOLED Display",
+  "price": 4500,
+  "image": "eg_39.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc66"
+  },
+  "id": 40,
+  "name": "Google Pixel Watch 2",
+  "model": "Qualcomm SW5100",
+  "specifics": "1.2-inch AMOLED, Fitbit Integration",
+  "price": 34999,
+  "image": "eg_40.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc67"
+  },
+  "id": 41,
+  "name": "Garmin Epix Pro Gen 2",
+  "model": "AMOLED, Multi-Band GPS",
+  "specifics": "42/47/51mm Sizes, Sapphire Lens",
+  "price": 89999,
+  "image": "eg_41.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc68"
+  },
+  "id": 42,
+  "name": "Garmin Fenix 7 Pro",
+  "model": "Transflective MIP Display",
+  "specifics": "47mm, Solar Charging, GPS",
+  "price": 84999,
+  "image": "eg_42.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc69"
+  },
+  "id": 43,
+  "name": "Amazfit Balance",
+  "model": "Dual-Core Processor",
+  "specifics": "1.5-inch AMOLED, Zepp OS",
+  "price": 19999,
+  "image": "eg_43.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc6a"
+  },
+  "id": 44,
+  "name": "Huawei Watch GT 4",
+  "model": "HarmonyOS 4.0",
+  "specifics": "46mm, 2-week Battery Life",
+  "price": 24999,
+  "image": "eg_44.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc6b"
+  },
+  "id": 45,
+  "name": "Fitbit Sense 2",
+  "model": "EDA & ECG Sensors",
+  "specifics": "1.58-inch AMOLED, Stress Management",
+  "price": 24999,
+  "image": "eg_45.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc6c"
+  },
+  "id": 46,
+  "name": "Apple iPad Pro 13-inch M4 (2024)",
+  "model": "Apple M4 Chip",
+  "specifics": "16GB RAM, 1TB Storage, OLED Display",
+  "price": 129900,
+  "image": "eg_46.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc6d"
+  },
+  "id": 47,
+  "name": "Apple iPad Air 13-inch M2 (2024)",
+  "model": "Apple M2 Chip",
+  "specifics": "8GB RAM, 512GB Storage, Liquid Retina Display",
+  "price": 84900,
+  "image": "eg_47.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc6e"
+  },
+  "id": 48,
+  "name": "Samsung Galaxy Tab S9 Ultra",
+  "model": "Snapdragon 8 Gen 2",
+  "specifics": "12GB RAM, 512GB Storage, 14.6-inch AMOLED",
+  "price": 109999,
+  "image": "eg_48.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc6f"
+  },
+  "id": 49,
+  "name": "Samsung Galaxy Tab S9+",
+  "model": "Snapdragon 8 Gen 2",
+  "specifics": "12GB RAM, 256GB Storage, 12.4-inch AMOLED",
+  "price": 94999,
+  "image": "eg_49.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc70"
+  },
+  "id": 50,
+  "name": "Xiaomi Pad 6 Max",
+  "model": "Snapdragon 8+ Gen 1",
+  "specifics": "16GB RAM, 1TB Storage, 14-inch LCD",
+  "price": 59999,
+  "image": "eg_50.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc71"
+  },
+  "id": 51,
+  "name": "Samsung Neo QLED 8K QN900D (2024)",
+  "model": "Quantum Matrix Technology Pro",
+  "specifics": "85-inch, 8K HDR, Tizen OS",
+  "price": 649999,
+  "image": "eg_51.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc72"
+  },
+  "id": 52,
+  "name": "Samsung Neo QLED 4K QN95D (2024)",
+  "model": "Quantum Matrix Technology",
+  "specifics": "75-inch, 4K HDR, Tizen OS",
+  "price": 289999,
+  "image": "eg_52.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc73"
+  },
+  "id": 53,
+  "name": "LG OLED evo G4 (2024)",
+  "model": "α11 AI Processor",
+  "specifics": "77-inch, 4K HDR, webOS",
+  "price": 399999,
+  "image": "eg_53.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc74"
+  },
+  "id": 54,
+  "name": "LG OLED evo C4 (2024)",
+  "model": "α9 AI Processor Gen7",
+  "specifics": "65-inch, 4K HDR, webOS",
+  "price": 229999,
+  "image": "eg_54.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc75"
+  },
+  "id": 55,
+  "name": "Sony Bravia XR A95L QD-OLED",
+  "model": "Cognitive Processor XR",
+  "specifics": "65-inch, 4K HDR, Google TV",
+  "price": 329999,
+  "image": "eg_55.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc76"
+  },
+  "id": 56,
+  "name": "Sony Bravia XR X95L Mini LED",
+  "model": "Cognitive Processor XR",
+  "specifics": "75-inch, 4K HDR, Google TV",
+  "price": 289999,
+  "image": "eg_56.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc77"
+  },
+  "id": 57,
+  "name": "TCL QM8 Mini LED TV (2024)",
+  "model": "AiPQ Processor",
+  "specifics": "85-inch, 4K HDR, Google TV",
+  "price": 179999,
+  "image": "eg_57.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc78"
+  },
+  "id": 58,
+  "name": "TCL C755 QD-Mini LED (2024)",
+  "model": "AiPQ Processor",
+  "specifics": "75-inch, 4K HDR, Google TV",
+  "price": 139999,
+  "image": "eg_58.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc79"
+  },
+  "id": 59,
+  "name": "Hisense ULED X (2024)",
+  "model": "Hi-View Engine X",
+  "specifics": "85-inch, 4K HDR, VIDAA OS",
+  "price": 159999,
+  "image": "eg_59.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c8c4c6be639fcffc74bc7a"
+  },
+  "id": 60,
+  "name": "Panasonic MZ2000 OLED TV",
+  "model": "HCX Pro AI Processor",
+  "specifics": "77-inch, 4K HDR, OLED Panel",
+  "price": 249999,
+  "image": "eg_60.jpg"
+},
+{
+  "_id": {
+    "$oid": "68ce6ffca014b8fa17da17dc"
+  },
+  "id": 61,
+  "name": "MacBook Air 13",
+  "model": "MacBook Air white symbols",
+  "price": 14980,
+  "image": "eg_61.jpg"
+}]
